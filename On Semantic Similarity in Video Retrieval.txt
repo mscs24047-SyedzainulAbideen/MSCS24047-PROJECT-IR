@@ -1,0 +1,46 @@
+0.00-5.50  Hello, my name is Michael and I'm here to present our work on Semantics Samaritan in video retrieval.
+5.50-11.00  This is a collaboration with myself, Hazel and Dima here at the University of Bristol.
+11.00-15.00  To start with, let's define the task of video retrieval.
+15.00-18.00  Given a query video, find the corresponding caption.
+18.00-24.00  In this example, a man is feeling through carefully and neatly if the ground truth caption to retrieve.
+24.00-28.00  When we look at other examples within the data set, we see two main issues.
+28.00-34.00  Firstly, only a single caption is considered as ground truth, even when other relevant captions exist.
+34.00-42.00  And secondly, captions which are completely irrelevant are treated in the same way as those which describe the video.
+46.00-49.00  This is due to the assumption that current methods make.
+49.00-52.00  There is only one corresponding caption for a given video.
+52.00-56.00  You find this is the case for you cook too, or you show the ground truth caption involved.
+56.00-61.00  As well as for MSRBTT and Epic Kitchens.
+61.00-69.00  We investigate all three in this paper and uncovering the issues of the instance-based assumption for both training and evaluation.
+69.00-74.00  To begin with, we first explore the issues of evaluating using the instance-based assumption.
+74.00-80.00  We find all captions that are relevant and then evaluate using the highest and lowest ranking examples.
+80.00-85.00  This gives us the best and worst case performances for each method.
+86.00-94.00  On you cook too, we see that two recent works, MOE and CE, perform comparably, although they have a very large range of performance.
+94.00-99.00  We find this is also the case with MSRBTT and Epic Kitchens 100.
+101.00-106.00  In this paper, we introduce semantics similarity for video retrieval and we have two main goals for this.
+106.00-112.00  Firstly, we want to move from a one-to-one relationship between videos and captions to a many-to-many relationship.
+113.00-118.00  Secondly, we want to allow for differing levels of similarity between videos and captions.
+120.00-123.00  However, annotating many-to-many relationships is too expensive.
+123.00-127.00  Instead, we introduce the notion of using a proxy function.
+127.00-132.00  To do this, we first assume that captions sufficiently describes the video it was collected for.
+132.00-139.00  And that allows us to define a proxy function that relates to captions, allowing us to relate a video with a different caption.
+140.00-146.00  In the paper, we introduce four proxy measures based on bag of words, parts of speech, synths, and meteor.
+146.00-153.00  We show several examples of how these proxies compare to each other and the emphasis they give to actions and objects in the captions.
+154.00-159.00  To evaluate semantic retrieval, we use the normalized discounted kilomit of game metric.
+159.00-163.00  This allows us to evaluate multiple relevant items with differing levels of relevancy.
+164.00-169.00  Evaluating with semantic similarity shows differences when evaluating with instance-based retrieval.
+169.00-175.00  On the left, we see that current methods, MRE, and CE, outperform the simple MME baseline.
+175.00-181.00  However, in the four cases on the right when using the proxy measures, we see that for each case, the performance is comparable.
+183.00-186.00  Next, we discuss how to train with semantic similarity.
+186.00-189.00  But first, let's go over instance-based video retrieval training.
+190.00-199.00  This uses a triplet-based learning objective, and ensures that the distance between the query and a positive is smaller than the distance between the query and the negative, for all negatives within the batch.
+202.00-206.00  When we move to training with a semantic similarity, we first choose a threshold.
+206.00-210.00  This allows us to create a set of positives of all examples above this threshold.
+211.00-215.00  During each epoch, we sample a single positive and then apply the loss as before.
+216.00-220.00  Ensuring that each positive is closer to the query than every negative within the batch.
+223.00-233.00  We can see the results of training for instance-based retrieval in black, and show that for most thresholds, training with semantic similarity outperforms instance-based training regardless of which proxy measure is used.
+234.00-239.00  So, to conclude, current approaches only assume a single caption is relevant for a video.
+239.00-243.00  We find that this assumption breaks for all popular video retrieval data sets.
+243.00-251.00  And to overcome this, we propose semantic similarity for video retrieval, which allows for multiple relevant items with differing levels of relevancy.
+252.00-254.00  Thank you for watching.
+254.00-259.00  For more information, please come to paper session 3 during CVPR, or visit the webpage listed.
+259.00-267.00  Finally, we include the GitHub repo, which includes code for training and the values in your methods for the semantic similarity video retrieval task.
